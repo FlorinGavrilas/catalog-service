@@ -13,7 +13,17 @@ jobs:
     steps:
       - name: Step 1 job1
         id: step11
-        run: echo "VARJOB1STEP1=hello" >> $GITHUB_OUTPUT
+        run: |
+          
+          GIT_COMMIT_ID="string1"
+          ARC_COMMIT_ID="string1"
+
+          if [ "$GIT_COMMIT_ID" == "$ARC_COMMIT_ID" ]; then 
+            echo "VARJOB1STEP1=hello11111" >> $GITHUB_OUTPUT
+          else
+            echo "VARJOB1STEP1=hello22222" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Step 2 job1
         id: step12
         run: echo ${{ steps.step11.outputs.varJob1Step1}}
