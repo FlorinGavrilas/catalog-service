@@ -14,6 +14,9 @@ jobs:
       - name: Step 1 job1
         id: step11
         run: echo "varJob1Step1=hello" >> $GITHUB_OUTPUT
+      - name: Step 2 job1
+        id: step12
+        run: echo ${{ steps.step11.outputs.varJob1Step1}}
   job2:
     runs-on: ubuntu-latest
     needs: job1
