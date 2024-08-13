@@ -14,6 +14,9 @@ jobs:
       - name: Step 1 job1
         id: step11
         run: |
+
+          commit_id=$(git rev-parse HEAD)
+          echo "Test: $commit_id"
           
           GIT_COMMIT_ID="string1"
           ARC_COMMIT_ID="string1"
